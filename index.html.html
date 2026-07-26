@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Amo de los Dragones - Kerim Calles</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --accent-gold: #f59e0b;
+            --accent-gold-light: #fbbf24;
+            --accent-red: #ef4444;
+            --accent-blue: #38bdf8;
+            --accent-green: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* HEADER & TOP INFO */
+        header {
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #311042 50%, #1e293b 100%);
+            border-radius: 16px;
+            border: 1px solid #4338ca;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🐉';
+            font-size: 120px;
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .student-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 10px 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .student-info h2 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .student-info p {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .school-logo {
+            width: 90px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+            background-color: #fff;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent-gold-light);
+            border: 1px solid var(--accent-gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
+            font-weight: 900;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .tags-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* SECTION STYLING */
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--accent-gold-light);
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            font-weight: 800; /* Letra amarilla más gruesa a petición del usuario */
+        }
+
+        .section-title span {
+            font-size: 1.8rem;
+        }
+
+        /* SINOPSIS & PORTADA */
+        .sinopsis-container {
+            background: var(--bg-card);
+            border-left: 5px solid var(--accent-gold);
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .book-cover {
+            float: left;
+            width: 140px;
+            border-radius: 8px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+        }
+
+        .sinopsis-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: var(--accent-gold-light);
+            font-weight: 600;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* RESEÑA CARD */
+        .review-card {
+            background: linear-gradient(to right, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border-left: 5px solid var(--accent-green);
+            border-right: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .review-card::before {
+            content: '"';
+            font-size: 6rem;
+            color: rgba(16, 185, 129, 0.1);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        .review-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 12px;
+            font-style: italic;
+            color: #e2e8f0;
+        }
+
+        .review-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* CHARACTER GRID */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .char-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .char-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .char-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .char-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .char-title h3 {
+            font-size: 1.15rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .char-title .role {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .char-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .char-card.traitor { border-color: rgba(239, 68, 68, 0.4); }
+        .char-card.traitor:hover { border-color: var(--accent-red); }
+
+        /* CHAPTER NAVIGATOR */
+        .chapter-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            scrollbar-width: thin;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-card-hover);
+            color: #fff;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-gold);
+            color: #0f172a;
+            border-color: var(--accent-gold-light);
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+        }
+
+        .chapter-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 25px;
+            min-height: 180px;
+        }
+
+        .chapter-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chapter-num {
+            color: var(--accent-gold-light);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .chapter-title-text {
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .chapter-body {
+            font-size: 1rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .key-event {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #fef08a;
+        }
+
+        .twist-event {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(239, 68, 68, 0.15);
+            border-left: 3px solid var(--accent-red);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #fca5a5;
+        }
+
+        /* EXTRA FEATURES */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .feature-card h4 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-card li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.93rem;
+            color: var(--text-muted);
+        }
+
+        .feature-card li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.3rem; }
+            .header-top { flex-direction: column-reverse; align-items: center; }
+            .book-cover { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="header-top">
+            <div class="student-info">
+                <h2>Kerim Leonardo Calles Cuadra</h2>
+                <p>N° 7 | 2 ITSI</p>
+            </div>
+            <img src="logoparro.png" alt="Logo de la Institución" class="school-logo">
+        </div>
+
+        <div class="header-content">
+            <span class="badge-tag">Fiction Express • Nivel 3</span>
+            <h1>El Amo de los Dragones</h1>
+            <p class="subtitle">Infografía Informativa e Interactiva de Lectura</p>
+            
+            <div class="tags-container">
+                <span class="tag">🤝 Amistad</span>
+                <span class="tag">🏡 Convivencia</span>
+                <span class="tag">👨‍👦 Familia</span>
+                <span class="tag">🦁 Valentía</span>
+                <span class="tag">🧩 Discalculia</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-title"><span>📖</span> Sinopsis de la Historia</div>
+    <div class="sinopsis-container clearfix">
+        <img src="el-amo-de-los-dragones.jpg" alt="Portada del libro El Amo de los Dragones" class="book-cover">
+        <div class="sinopsis-text">
+            <p>A <span class="highlight">Félix</span>, un joven adolescente con discalculia, el mundo de los números le resulta atemorizante. Sin embargo, su vida da un giro radical cuando su padre, <span class="highlight">Arel</span>, desaparece misteriosamente dejando una nota con una enigmática secuencia numérica. Para salvarlo, Félix debe superar sus propios miedos y adentrarse en el mítico reino de <span class="highlight">Dracónidas</span>. Allí descubrirá un profundo secreto familiar, el legado del <span class="highlight">Amo de los Dragones</span> y la amarga lección de que no todos los que parecen amigos dicen la verdad.</p>
+        </div>
+    </div>
+
+    <div class="section-title"><span>✍️</span> Reseña desde mi perspectiva</div>
+    <div class="review-card">
+        <p>En mi opinión El amo de los dragones es un libro muy interesante porque mezcla las aventuras con enseñanzas que pueden servir en la vida real. Al principio pensé que solo trataría de dragones y fantasía, pero mientras fui leyendo me di cuenta de que también habla sobre la amistad, el trabajo en equipo y la importancia de no rendirse cuando las cosas se ponen difíciles.</p>
+        <p>Lo que más me llamó la atención fue que los personajes van cambiando con el tiempo y aprendiendo de sus errores. Además, el libro deja un mensaje muy bonito: no debemos de juzgar a las personas por sus limitaciones o por lo que los demás dicen de ellas, porque todos tenemos algo valioso que aportar a este mundo.</p>
+    </div>
+
+    <div class="section-title"><span>👥</span> Personajes Principales</div>
+    <div class="character-grid">
+        
+        <div class="char-card">
+            <div class="char-header">
+                <div class="char-icon">🧑‍🦱</div>
+                <div class="char-title">
+                    <h3>Félix</h3>
+                    <span class="role">Protagonista</span>
+                </div>
+            </div>
+            <p class="char-desc">Adolescente con discalculia. A pesar de temerle a los números, demuestra un valor inquebrantable para descifrar la clave de su padre y asumir su destino en Dracónidas.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <div class="char-icon">👨‍👦</div>
+                <div class="char-title">
+                    <h3>Arel</h3>
+                    <span class="role">Padre de Félix</span>
+                </div>
+            </div>
+            <p class="char-desc">Desaparece al inicio dejando un acertijo numérico. Es secuestrado por Thuban para ser utilizado como pieza clave en la creación de una temible arma.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <div class="char-icon">🧙‍♂️</div>
+                <div class="char-title">
+                    <h3>Eltanin</h3>
+                    <span class="role">El Amo de los Dragones</span>
+                </div>
+            </div>
+            <p class="char-desc">Abuelo de Félix y protector de Dracónidas. Lucha contra las fuerzas oscuras de Thuban y, antes de perecer en batalla, nombra a Félix como su digno sucesor.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <div class="char-icon">🦹‍♂️</div>
+                <div class="char-title">
+                    <h3>Thuban</h3>
+                    <span class="role">El Antagonista</span>
+                </div>
+            </div>
+            <p class="char-desc">El villano principal que secuestra a Arel y utiliza su poder para engendrar al Dragón Rojo con el firme propósito de destruir el poblado de Dracónidas.</p>
+        </div>
+
+        <div class="char-card traitor">
+            <div class="char-header">
+                <div class="char-icon">🎭</div>
+                <div class="char-title">
+                    <h3>Oswald</h3>
+                    <span class="role" style="color: var(--accent-red);">El Falso Aliado</span>
+                </div>
+            </div>
+            <p class="char-desc">Se presenta inicialmente como un leal amigo de Arel que ayuda a Félix. No obstante, al final se revela el gran giro: ¡es el verdadero traidor!</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <div class="char-icon">🛡️</div>
+                <div class="char-title">
+                    <h3>Altais</h3>
+                    <span class="role">Aliado</span>
+                </div>
+            </div>
+            <p class="char-desc">Acompaña a la comitiva en las peligrosas negociaciones con Thuban para intentar liberar a Arel y resguardar la paz del reino.</p>
+        </div>
+
+    </div>
+
+    <div class="section-title"><span>📜</span> Resumen Capítulo por Capítulo</div>
+    <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.9rem;">Haz clic en cada capítulo para desplegar la información:</p>
+
+    <div class="chapter-tabs">
+        <button class="tab-btn active" onclick="showChapter(1)">Capítulo 1</button>
+        <button class="tab-btn" onclick="showChapter(2)">Capítulo 2</button>
+        <button class="tab-btn" onclick="showChapter(3)">Capítulo 3</button>
+        <button class="tab-btn" onclick="showChapter(4)">Capítulo 4</button>
+        <button class="tab-btn" onclick="showChapter(5)">Capítulo 5</button>
+    </div>
+
+    <div id="chapter-display" class="chapter-content">
+        </div>
+
+    <div class="section-title"><span>✨</span> Claves de la Lectura y Dinámica</div>
+    <div class="feature-grid">
+        
+        <div class="feature-card">
+            <h4>💡 Formato Participativo</h4>
+            <ul>
+                <li><strong>Co-creación:</strong> Los lectores votaron al final de cada capítulo para decidir el rumbo de la trama mientras el autor escribía.</li>
+                <li><strong>Plataforma Digital:</strong> Lectura adaptada al Nivel 3 de Fiction Express para desarrollar la comprensión lectora.</li>
+                <li><strong>Recursos Pedagógicos:</strong> Incluye glosario de términos y actividades didácticas de apoyo.</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>🧠 Temática e Impacto</h4>
+            <ul>
+                <li><strong>Inclusión y Discalculia:</strong> Muestra cómo la valentía y el ingenio de Félix superan sus dificultades con los números.</li>
+                <li><strong>Familia y Destino:</strong> Descubrir el linaje de Dracónidas impulsa a Félix a asumir una responsabilidad mayor.</li>
+                <li><strong>Giro Dramático:</strong> Enseña a discernir en quién confiar tras la traición sorpresa de Oswald.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Infografía elaborada para la asignatura de Lenguaje y Literatura • Fuente: Fiction Express Nivel 3</p>
+        <p style="margin-top: 5px; opacity: 0.7;">Alumno: Kerim Leonardo Calles Cuadra - 2 ITSI</p>
+    </footer>
+
+</div>
+
+<script>
+    const chaptersData = {
+        1: {
+            title: "La desaparición",
+            body: "Félix, un adolescente que sufre de discalculia (temor y dificultad extrema con los números), regresa a su hogar solo para descubrir que su padre, Arel, ha desaparecido sin dejar rastro. La única pista que encuentra es una nota con una extraña e incomprensible secuencia numérica.",
+            key: "🔑 Evento clave: Félix se enfrenta por primera vez a su temor hacia los números al intentar interpretar el enigma dejado por Arel."
+        },
+        2: {
+            title: "Del otro lado de la aldea",
+            body: "Aparece Oswald, un misterioso hombre que afirma ser un fiel amigo de Arel. Oswald le revela a Félix que su padre fue secuestrado y que la nota numérica es un mensaje directo. Le insiste en que deben partir juntos de inmediato para lograr rescatarlo.",
+            key: "🔑 Evento clave: Félix toma la valiente decisión de confiar en Oswald y salir de su zona de confort para salvar a su padre."
+        },
+        3: {
+            title: "El dragón rojo",
+            body: "Al llegar al legendario reino de Dracónidas, Félix descubre una revelación impactante: ¡su abuelo, Eltanin, es el Amo de los Dragones! Sin embargo, la alegría del hallazgo se empaña al saber que el malvado Thuban tiene secuestrado a Arel con el fin de obligarlo a servir como arma contra el reino.",
+            key: "🔑 Evento clave: Descubrimiento del secreto y linaje familiar de Félix en Dracónidas."
+        },
+        4: {
+            title: "La estrella polar egipcia",
+            body: "Una comitiva formada por Félix, su abuelo Eltanin, Oswald y Altais se reúne con el despiadado Thuban para negociar la liberación de Arel. Thuban se niega rotundamente a ceder y, manipulando el poder de Arel, desata la creación de un temible Dragón Rojo para arremeter contra la aldea.",
+            key: "🔑 Evento clave: Creación del Dragón Rojo y fracaso de la negociación de paz."
+        },
+        5: {
+            title: "Murciélago",
+            body: "Tras una feroz batalla, el sabio Eltanin fallece debido a sus heridas. En sus momentos finales, le encomienda a Félix la trascendental misión de detener a Thuban y convertirse en el nuevo Amo de los Dragones. Félix emprende la marcha para cumplir la promesa, pero al llegar cara a cara con el peligro, descubre la amarga verdad: ¡Oswald era el verdadero traidor infiltrado!",
+            twist: "⚠️ ¡Gran Giro Argumental!: Se revela la verdadera identidad y traición de Oswald al descubierto."
+        }
+    };
+
+    function showChapter(num) {
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach((btn, index) => {
+            if (index + 1 === num) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        const data = chaptersData[num];
+        const container = document.getElementById('chapter-display');
+        
+        let extraTag = `<div class="key-event">${data.key}</div>`;
+        if (data.twist) {
+            extraTag += `<div class="twist-event">${data.twist}</div>`;
+        }
+
+        container.innerHTML = `
+            <div class="chapter-header-flex">
+                <span class="chapter-num">Capítulo ${num}</span>
+                <h3 class="chapter-title-text">${data.title}</h3>
+            </div>
+            <p class="chapter-body">${data.body}</p>
+            ${extraTag}
+        `;
+    }
+
+    showChapter(1);
+</script>
+
+</body>
+</html>

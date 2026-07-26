@@ -568,7 +568,7 @@
     </div>
 
     <div class="section-title"><span>📜</span> Resumen Capítulo por Capítulo</div>
-    <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.9rem;">Haz clic en cada capítulo para desplegar la información:</p>
+    <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.9rem;">Puede hacer clic en cada capítulo para desplegar la información maestra Wendy:</p>
 
     <div class="chapter-tabs">
         <button class="tab-btn active" onclick="showChapter(1)">Capítulo 1</button>
@@ -653,7 +653,15 @@
         const data = chaptersData[num];
         const container = document.getElementById('chapter-display');
         
-        let extraTag = `<div class="key-event">${data.key}</div>`;
+        // Iniciamos la variable vacía
+        let extraTag = ""; 
+        
+        // Condición corregida: Solo agrega la caja amarilla si hay un 'key'
+        if (data.key) {
+            extraTag += `<div class="key-event">${data.key}</div>`;
+        }
+        
+        // Solo agrega la caja roja si hay un 'twist'
         if (data.twist) {
             extraTag += `<div class="twist-event">${data.twist}</div>`;
         }
@@ -670,6 +678,5 @@
 
     showChapter(1);
 </script>
-
 </body>
 </html>
